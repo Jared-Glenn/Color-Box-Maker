@@ -40,7 +40,7 @@ function NewBoxForm(props) {
                 value={formData.width}
                 onChange={handleChange}
             />
-            <label htmlFor="height">Width: </label>
+            <label htmlFor="height">Height: </label>
             <input
                 id="height"
                 type="text"
