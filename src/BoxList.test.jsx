@@ -14,7 +14,7 @@ it("matches the snapshot", () => {
 
 it("should add new box", () => {
     const { getByText, getByLabelText, queryByTestId, getByTestId } = render(<BoxList />);
-    const input = getByLabelText("Color: ");
+    const input = getByText("Color: ");
     const button = getByText("Create Box");
     expect(queryByTestId("box")).not.toBeInTheDocument();
     fireEvent.change(input, { target: { value: 'pink'}});
