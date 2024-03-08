@@ -13,11 +13,17 @@ it("matches the snapshot", () => {
 });
 
 it("should add new box", () => {
-    const { getByText, getByLabelText, queryByTestId, getByTestId } = render(<BoxList />);
-    const input = getByText("Color: ");
+    const { getByText, getByLabelText, queryByTestId, getByTestId , queryAllByTestId} = render(<BoxList />);
+    const input = getByLabelText("Color:");
     const button = getByText("Create Box");
-    expect(queryByTestId("box")).not.toBeInTheDocument();
+
+    let boxes = queryAllByTestId("box");
+    expect(boxes.length).toBe(1);
+
     fireEvent.change(input, { target: { value: 'pink'}});
     fireEvent.click(button);
-    expect(getByTestId("box")).toBeInTheDocument();
-})
+
+    boxes = queryAllByTestId("box");
+    expect(boxes.length).toBe(2);
+});
+
